@@ -15,6 +15,5 @@ selectedDates$DateTime <- strptime(paste(selectedDates$Date, selectedDates$Time,
 
 png(filename = "plot2.PNG", width = 480, height = 480)
 # plot as type n to make it so that the dots are not drawn
-plot(x = selectedDates$DateTime, y=selectedDates$Global_active_power, type = "n", xlab = "", ylab="Global Active Power (kilowatts)")
-lines(x = selectedDates$DateTime, y=selectedDates$Global_active_power)
+plot(x = selectedDates$DateTime, y=selectedDates$Global_active_power, type = "l", xlab = "", ylab="Global Active Power (kilowatts)")
 dev.off()

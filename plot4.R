@@ -24,18 +24,15 @@ selectedDates$DateTime <- strptime(paste(selectedDates$Date, selectedDates$Time,
 
 png(filename = "plot4.PNG", width = 480, height = 480)
 par(mfrow=c(2,2), mar = c(4,4,4,4))
-plot(x = selectedDates$DateTime, y=selectedDates$Global_active_power, type = "n", xlab = "", ylab="Global Active Power (kilowatts)")
-lines(x = selectedDates$DateTime, y=selectedDates$Global_active_power)
+plot(x = selectedDates$DateTime, y=selectedDates$Global_active_power, type = "l", xlab = "", ylab="Global Active Power (kilowatts)", cex=0.2)
 
-plot(x = selectedDates$DateTime, y=selectedDates$Voltage, type = "n", xlab = "datetime", ylab="Voltage")
-lines(x = selectedDates$DateTime, y=selectedDates$Voltage)
+plot(x = selectedDates$DateTime, y=selectedDates$Voltage, type = "l", xlab = "datetime", ylab="Voltage")
 
-plot(x=selectedDates$DateTime, y=selectedDates$Sub_metering_1, type="n", xlab="", ylab = "Energy sub metering")
-lines(x=selectedDates$DateTime, y=selectedDates$Sub_metering_1, col="black")
+plot(x=selectedDates$DateTime, y=selectedDates$Sub_metering_1, type="l", xlab="", ylab = "Energy sub metering")
 lines(x=selectedDates$DateTime, y=selectedDates$Sub_metering_2, col="red")
 lines(x=selectedDates$DateTime, y=selectedDates$Sub_metering_3, col="blue")
-legend("topright", col=c("black", "red", "blue"), legend=c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"), lty=c(1,1,1))
+legend("topright", col=c("black", "red", "blue"), legend=c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"), lty=c(1,1,1), lwd=2.5)
 
-plot(x = selectedDates$DateTime, y=selectedDates$Global_reactive_power, type = "n", xlab = "datetime", ylab="Global_reactive_power" )
-lines(x = selectedDates$DateTime, y=selectedDates$Global_reactive_power)
+plot(x = selectedDates$DateTime, y=selectedDates$Global_reactive_power, type = "l", xlab = "datetime", ylab="Global_reactive_power" )
+
 dev.off()
